@@ -50,6 +50,36 @@ class Habit:
         self.checkoff_dates.append(completion_time)
         return True
 
+    def is_broken(self) -> bool:
+        """
+        Determines if the habit is currently broken.
+        A daily habit is broken if more than 1 calendar day has passed since the last action.
+        A weekly habit is broken if more than 7 calendar days have passed.
+        
+        Returns:
+            bool: True if the habit is broken, False otherwise.
+        """
+        now = datetime.now().date()
+        
+        # Determine the baseline date (last completion, or creation if never completed)
+        if self.checkoff_dates:
+            # Get the most recent check-off date
+            last_date = max(self.checkoff_dates).date()
+        else:
+            last_date = self.created_at.date()
+
+        # Calculate the difference in calendar days between now and the most recent check-off date
+        days_since_last = (now - last_date).days
+
+        if self.periodicity == "daily":
+            # For daily habits, if more than 1 day has passed (e.g., missed yesterday), it is broken
+            return days_since_last > 1
+        elif self.periodicity == "weekly":
+            # For weekly habits, if more than 7 days have passed, it is broken
+            return days_since_last > 7
+            
+        return False
+    
     def __str__(self) -> str:
         """Returns a readable string representation of the Habit."""
         return f"[{self.periodicity.upper()}] {self.name} (ID: {self.id})"
