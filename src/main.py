@@ -1,9 +1,14 @@
+import os
 import sys
 from datetime import datetime
 import questionary
 from src.db import DatabaseManager
 from src.habit import Habit
 import src.analytics as analytics
+
+def clear_screen():
+    """Clears the terminal screen for a clean UI. Works on Mac/Linux and Windows."""
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def display_header():
     """Prints the application header."""
@@ -107,6 +112,7 @@ def main():
     db = DatabaseManager()
     
     while True:
+        clear_screen()
         display_header()
         
         # Interactive Arrow-Key Menu
@@ -124,13 +130,18 @@ def main():
         # Route the user's choice to the correct function
         if action == "1. Add a new habit":
             add_habit(db)
+            input("\nPress Enter to return to the menu...")
         elif action == "2. Check-off a habit":
             checkoff_habit(db)
+            input("\nPress Enter to return to the menu...")
         elif action == "3. View Analytics":
             view_analytics(db)
+            input("\nPress Enter to return to the menu...")
         elif action == "4. Delete a habit":
             delete_habit(db)
+            input("\nPress Enter to return to the menu...")
         elif action == "5. Exit":
+            clear_screen()
             print("\n👋 Keep up the good habits! See you later.\n")
             sys.exit(0)
 
