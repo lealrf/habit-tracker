@@ -35,12 +35,12 @@ def generate_predefined_data():
     # Generate 4 weeks (28 days) of historical data
     print("Generating 4 weeks of historical tracking data...")
     today = datetime.now()
-    start_date = today - timedelta(days=28)
+    start_date = today - timedelta(days=27)
 
     # Simulate a perfect 28-day streak for the first habit,
     # and realistic "missed days" for the others.
     
-    for i in range(29):
+    for i in range(28):
         current_date = start_date + timedelta(days=i)
         
         # Habit 1: Drink Water (Perfect daily streak - 28 days)
