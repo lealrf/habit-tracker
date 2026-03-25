@@ -81,14 +81,18 @@ def view_analytics(db: DatabaseManager):
     print(" 📊 ANALYTICS DASHBOARD")
     print("-"*40)
 
-    # 1. List all habits using the functional map()
+    # List all habits using the functional map()
     print("\n=> ALL CURRENT HABITS:")
     for h_str in analytics.list_all_habits(habits):
         print(f"   {h_str}")
 
-    # 2. Filter by periodicity using functional filter()
+    # Filter daily habits using functional filter()
     daily_habits = analytics.filter_by_periodicity(habits, "daily")
     print(f"\n=> YOU HAVE {len(daily_habits)} DAILY HABITS.")
+    
+    # Filter weekly habits using functional filter()
+    weekly_habits = analytics.filter_by_periodicity(habits, "weekly")
+    print(f"=> YOU HAVE {len(weekly_habits)} WEEKLY HABITS.")
 
     # 3. Overall longest streak using map() and reduce()
     longest_overall = analytics.calculate_longest_streak_overall(habits)
