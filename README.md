@@ -97,7 +97,7 @@ pytest -v tests/
 
 ### 📂 Project Structure
 ```text
-habit_tracker_portfolio/
+habit_tracker/
 ├── src/
 │   ├── analytics.py      # Pure functional programming module
 │   ├── db.py             # OOP SQLite Database Manager
