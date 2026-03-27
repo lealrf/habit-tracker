@@ -1,5 +1,6 @@
 """Manages SQLite database connections and CRUD operations."""
 
+import os
 import sqlite3
 from datetime import datetime
 from src.habit import Habit
@@ -14,6 +15,11 @@ class DatabaseManager:
     def __init__(self, db_name: str = "data/habits.db"):
         # The single underscore is used to indicate these are 'private' to this class
         self._db_name = db_name
+        
+        db_dir = os.path.dirname(self._db_name)
+        if db_dir:
+            os.makedirs(db_dir, exist_ok=True)
+            
         self._conn = None
         self.connect()
         self.create_tables()
