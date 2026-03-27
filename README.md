@@ -16,7 +16,8 @@ A robust, backend-focused Habit Tracking Application built with Python. This pro
 
 ## ⚙️ Prerequisites
 *   **Python 3.7+** (Python 3.12 is highly recommended)
-*   Git (to clone the repository)
+    *   *Windows Users:* Ensure you check **"Add Python to PATH"** and include **"pip"** during the Python installation process.
+*   **Git** (to clone the repository)
 
 ---
 
@@ -46,17 +47,17 @@ python3 -m pip install -r requirements.txt
 ```
 
 ### 🪟 For Windows:
-Open Command Prompt or PowerShell and run::
+Open Command Prompt or PowerShell and run these commands from the project root:
 
 ```bash
 # 1. Create the virtual environment
 python -m venv venv
 
 # 2. Activate the virtual environment
-venv\Scripts\activate
+venv\Scripts\activate  # (Note: Use .\venv\Scripts\activate if using PowerShell)
 
 # 3. Install the required dependencies
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 ---
