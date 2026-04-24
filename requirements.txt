@@ -1,12 +1,20 @@
-# CLI Interface
-click>=8.1.0
-questionary>=2.0.0 
-rich>=13.0.0
-
-# Testing
-pytest>=7.0.0
-pytest-cov>=4.0.0
-
-# Code Quality & Linting
-black>=23.0.0
-ruff>=0.0.280
+black==26.3.1
+click==8.3.1
+coverage==7.13.5
+iniconfig==2.3.0
+markdown-it-py==4.0.0
+mdurl==0.1.2
+mypy_extensions==1.1.0
+packaging==26.0
+pathspec==1.0.4
+platformdirs==4.9.4
+pluggy==1.6.0
+prompt_toolkit==3.0.52
+Pygments==2.19.2
+pytest==9.0.2
+pytest-cov==7.0.0
+pytokens==0.4.1
+questionary==2.1.1
+rich==14.3.3
+ruff==0.15.6
+wcwidth==0.6.0
